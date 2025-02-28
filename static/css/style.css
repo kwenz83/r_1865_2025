@@ -1,15 +1,67 @@
 body {
     background-color: #f0f8ff;
     font-family: Arial, sans-serif;
+    margin: 0;  /* 去除默认边距 */
+    padding: 0;  /* 去除默认边距 */
 }
 
+/* Banner 居中 */
 .header {
     background-color: #1e3a8a;
     color: white;
     padding: 20px;
     margin-bottom: 20px;
+    width: 100%;  /* 宽度占满屏幕 */
+    position: sticky;  /* 固定在顶部 */
+    top: 0;
+    z-index: 1000;  /* 确保 Banner 在最上层 */
+    text-align: center;  /* 文字居中 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);  /* 添加阴影 */
 }
 
+/* 表格容器 */
+.container {
+    overflow-x: auto;  /* 允许水平滚动 */
+    max-width: 100%;  /* 确保容器不超出屏幕 */
+    padding: 0 10px;  /* 添加左右内边距 */
+}
+
+/* 表格样式 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;  /* 最小宽度，确保表格不会过窄 */
+}
+
+/* 表格线统一为最小宽度的浅灰色 */
+th, td {
+    padding: 10px;
+    text-align: center;  /* 水平居中 */
+    vertical-align: middle;  /* 垂直居中 */
+    border: 1px solid #e0e0e0;  /* 浅灰色表格线 */
+}
+
+/* 表头样式 */
+th {
+    position: sticky;
+    top: 0;
+    background-color: #1e3a8a;  /* 深蓝色背景 */
+    color: white;  /* 文字颜色改为白色 */
+    z-index: 2;  /* 确保表头在最上层 */
+    height: 50px;  /* 设置表头高度 */
+}
+
+/* 冻结名字列 */
+th:first-child,
+td:first-child {
+    position: sticky;
+    left: 0;
+    background-color: #1e3a8a;  /* 深蓝色背景 */
+    color: white;  /* 文字颜色改为白色 */
+    z-index: 1;  /* 确保名字列在最上层 */
+}
+
+/* 可编辑单元格样式 */
 .editable {
     cursor: pointer;
 }
@@ -18,6 +70,7 @@ body {
     background-color: #bfdbfe !important;
 }
 
+/* 上下文菜单样式 */
 #contextMenu {
     position: absolute;
     display: none;
@@ -35,6 +88,7 @@ body {
     background-color: #f8f9fa;
 }
 
+/* 排序箭头样式 */
 .sortable {
     cursor: pointer;
     position: relative;
@@ -58,4 +112,25 @@ body {
 
 .sortable:hover .sort-arrow {
     opacity: 1;
+}
+
+/* 自定义滚动条样式 */
+::-webkit-scrollbar {
+    width: 12px;  /* 滚动条宽度 */
+    height: 12px;  /* 滚动条高度 */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;  /* 滚动条轨道背景色 */
+    border-radius: 6px;  /* 圆角 */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #a0c4ff;  /* 滚动条滑块颜色（淡蓝色） */
+    border-radius: 6px;  /* 圆角 */
+    border: 2px solid #f1f1f1;  /* 滑块边框 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7ea8ff;  /* 鼠标悬停时滑块颜色 */
 }
